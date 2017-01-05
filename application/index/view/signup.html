@@ -1,0 +1,86 @@
+{extend name="landing"} {block name="content"}
+<div class="get">
+    <div class="am-g">
+        <div class="am-u-lg-12">
+            <h1 class="get-title"><a href="/">SIGN UP --ITHINK--</a></h1>
+            <p>加入我们，即可拥有ITHINK天地</p>
+        </div>
+    </div>
+</div>
+<div class="sign">
+    <div class="am-g">
+        <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+            <form action="" method="post" class="am-form am-form-horizontal vld-ajax" id="form-with-tooltip" data-am-validator>
+                <div class="am-form-group">
+                    <label for="email" class="am-u-lg-2 am-u-md-12 am-form-label">电子邮件</label>
+                    <div class="am-u-lg-10 am-u-md-12">
+                        <input type="email" class="js-ajax-validate" id="email" name="email" placeholder="给个电邮地址,例:single@example.com" required="required" autocomplete="off" />
+                    </div>
+                </div>
+                <div class="am-form-group">
+                    <label for="name" class="am-u-lg-2 am-u-md-12 am-form-label">昵称</label>
+                    <div class="am-u-lg-10 am-u-md-12">
+                        <input type="text" class="js-ajax-validate" id="name" name="name" placeholder="想个钟意的昵称(2位以上哦)" required="required" minlength="2" />
+                    </div>
+                </div>
+                <div class="am-form-group">
+                    <label for="pwd" class="am-u-lg-2 am-u-md-12 am-form-label">密码</label>
+                    <div class="am-u-lg-10 am-u-md-12">
+                        <input type="password" id="pwd" name="pwd" placeholder="设置个6位以上的密码" required="required" minlength="6" />
+                    </div>
+                </div>
+                <div class="am-form-group">
+                    <label for="password" class="am-u-lg-2 am-u-md-12 am-form-label">确认密码</label>
+                    <div class="am-u-lg-10 am-u-md-12">
+                        <input type="password" id="password" name="password" placeholder="密码再来一次呗~" required="required" data-equal-to="#pwd" />
+                    </div>
+                </div>
+                <div class="am-cf am-u-sm-12 am-u-sm-centered">
+                    <div class="am-form-group">
+                        <a id="signup" class="am-btn am-btn-primary am-btn-sm am-fl">加入ITHINK</a>
+                        <a href="signin" class="am-btn am-btn-default am-btn-sm am-fr">已是THINKer？点我登录^_^</a>
+                    </div>
+                </div>
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+{/block} {block name="script"}
+<script type="text/javascript" src="__JS__/form-with-tooltip.js"></script>
+<script type="text/javascript">
+$('a#signup').click(function() {
+    var email = $('#email').val();
+    var name = $('#name').val();
+    var pwd = $('#pwd').val();
+
+    $.ajax({
+        url: 'signup',
+        method: 'POST',
+        data: {
+            'email': email,
+            'name': name,
+            'pwd': pwd,
+        },
+        dataType: 'text',
+        // cache:false,
+        beforeSend: function() {
+            $('a#signup').attr('disabled', 'disabled');
+            $('a#signup').text('正在注册...');
+        },
+        success: function(data) {
+            if (data) {
+                $('a#signup').removeAttr('disabled');
+                $('a#signup').attr('href','signin');
+                $('a#signup').text('注册成功,前去登录');
+                window.location.href = 'signin';
+            } else {
+                alert('注册失败，请重试');
+                location.replace('signup');
+            }
+        },
+
+    })
+})
+</script>
+{/block}

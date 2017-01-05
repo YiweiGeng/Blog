@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <title>ITHINK--基于ThinkPHP的简易博客群</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate icon" type="image/png" href="__IMG__/favicon.png">
+    <link rel="stylesheet" href="__CSS__/amazeui.min.css" />
+    <link rel="stylesheet" href="__CSS__/style.min.css" />
+</head>
+
+<body>
+    {block name="header"}{/block}
+    {block name="content"}{/block}
+    <footer>
+        <p>CopyRights © 2016-2017 Yujing Jiang ,. ITHINK--基于ThinkPHP的简易博客群 .</p>
+    </footer>
+    <!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__JS__/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="__JS__/jquery.min.js"></script>
+    <!--<![endif]-->
+    <script src="__JS__/amazeui.min.js"></script>
+    {block name="script"}{/block}
+</body>
+
+</html>

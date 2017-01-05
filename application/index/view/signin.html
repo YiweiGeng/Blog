@@ -1,0 +1,55 @@
+{extend name="landing"}
+{block name="content"}
+<div class="get">
+    <div class="am-g">
+        <div class="am-u-lg-12">
+            <h1 class="get-title"><a href="/">SIGN IN --ITHINK--</a></h1>
+            <p>管理我的BLOG</p>
+        </div>
+    </div>
+</div>
+<div class="sign">
+    <div class="am-g">
+        <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+            <form method="post" class="am-form am-form-horizontal" id="form-with-tooltip" data-am-validator>
+                <div class="am-form-group">
+                    <label for="email" class="am-u-lg-2 am-u-md-12 am-form-label">电子邮件</label>
+                    <div class="am-u-lg-10 am-u-md-12">
+                        <input type="email" id="email" name="email" placeholder="请输入您的电邮地址" required="required" autocomplete="off" />
+                    </div>
+                </div>
+                <div class="am-form-group">
+                    <label for="pwd" class="am-u-lg-2 am-u-md-12 am-form-label">密码</label>
+                    <div class="am-u-lg-10 am-u-md-12">
+                        <input type="password" id="pwd" name="pwd" placeholder="请输入您的密码" required="required" minlength="6"  />
+                    </div>
+                </div>
+                <div class="am-form-group">
+                    <label for="code" class="am-u-lg-2 am-u-md-12 am-form-label">验证码</label>
+                    <div class="am-u-lg-7 am-u-md-12">
+                        <input type="text" id="code" placeholder="请输入您看到的验证码" required="required" />
+                    </div>
+                    <label for="code-img" class="am-u-lg-3 am-u-md-12 am-form-label"><img src="" alt="验证码"></label>
+                </div>
+                <div class="am-cf am-u-md-12 am-u-sm-centered">
+                    <!-- <label for="remember-me">
+                        <input id="remember-me" type="checkbox"> 记住我
+                    </label> -->
+                    <div class="am-form-group">
+                        <input type="submit" value="管理我的ITHINK" class="am-btn am-btn-primary am-btn-sm am-fl">
+                        <!-- <a href="" class="am-btn am-btn-default am-btn-sm am-fl">忘记密码？</a> -->
+                        <a href="signup" class="am-btn am-btn-default am-btn-sm am-fr">没有账号？点我注册</a>
+                    </div>
+                </div>
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+
+{/block}
+
+
+{block name="script"}
+<script type="text/javascript" src="__JS__/form-with-tooltip.js"></script>
+{/block}

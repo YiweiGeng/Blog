@@ -1,0 +1,159 @@
+{extend name="landing"}
+{block name="header"}
+<header class="am-topbar am-topbar-fixed-top">
+    <div class="am-container">
+        <h1 class="am-topbar-brand">
+          <a href="/">ITHINK</a>
+        </h1>
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#collapse-head'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+        <div class="am-collapse am-topbar-collapse" id="collapse-head">
+            <ul class="am-nav am-nav-pills am-topbar-nav">
+                <li class="am-active"><a href="#">首页</a></li>
+                <!-- <li class="am-dropdown" data-am-dropdown>
+                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                          下拉菜单 <span class="am-icon-caret-down"></span>
+                        </a>
+                    <ul class="am-dropdown-content">
+                        <li class="am-dropdown-header">标题</li>
+                        <li><a href="#">1. 默认样式</a></li>
+                        <li><a href="#">2. 基础设置</a></li>
+                        <li><a href="#">3. 文字排版</a></li>
+                        <li><a href="#">4. 网格系统</a></li>
+                    </ul>
+                </li> -->
+            </ul>
+            <form class="am-topbar-form am-topbar-left am-form-inline" role="search">
+                <div class="am-form-group">
+                    <input type="text" class="am-form-field am-input-sm" placeholder="翻不到了？搜索试试">
+                </div>
+            </form>
+            {if condition = "($u = session('user') == null)"}
+            <div class="am-topbar-right">
+                <a href="index.php/signup" class="am-btn am-btn-secondary am-topbar-btn am-btn-sm"><span class="am-icon-pencil"></span> 注册</a>
+            </div>
+            <div class="am-topbar-right">
+                <a href="index.php/signin" class="am-btn am-btn-primary am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> 登录</a>
+            </div>
+            {else /}
+            <div class="am-topbar-right">
+                <ul class="am-nav am-nav-pills am-topbar-nav">
+                    <li class="am-dropdown" data-am-dropdown>
+                        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                          {$username = session('user.name')} <span class="am-icon-caret-down"></span>
+                        </a>
+                        <ul class="am-dropdown-content">
+                            <!-- <li class="am-dropdown-header">标题</li> -->
+                            <li><a href="#">我的ITHINK</a></li>
+                            <li><a href="#">最新消息</a></li>
+                            <li><a href="/index.php/logout">注&nbsp;销</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            {/if}
+        </div>
+    </div>
+</header>
+
+
+
+{/block}
+{block name="content"}
+<div class="get">
+    <div class="am-g">
+        <div class="am-u-lg-12">
+            <h1 class="get-title">ITHINK--基于ThinkPHP的简易博客群</h1>
+            <p>
+                华东交通大学&nbsp;信息工程学院&nbsp;计算机科学与技术2013-1班&nbsp;7号江玉静&nbsp;20130610040107
+            </p>
+            <p>
+                <a href="mailto:single@example.com" class="am-btn am-btn-sm get-btn">写信给我^_^</a>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="hope">
+    <div class="am-g am-container">
+        <div class="am-u-lg-4 am-u-md-6 am-u-sm-12 hope-img">
+            <img src="__IMG__/examples/landing.png" alt="" data-am-scrollspy="{animation:'slide-left', repeat: false}">
+            <hr class="am-article-divider am-show-sm-only hope-hr">
+        </div>
+        <div class="am-u-lg-8 am-u-md-6 am-u-sm-12">
+            <h2 class="hope-title">同我们一起打造你的前端框架</h2>
+            <p>
+                在知识爆炸的年代，我们不愿成为知识的过客，拥抱开源文化，发挥社区的力量，参与到Amaze Ui开源项目能获得自我提升。
+            </p>
+        </div>
+    </div>
+</div>
+<div class="about">
+    <div class="am-g am-container">
+        <div class="am-u-lg-12">
+            <h2 class="about-title about-color">Amaze UI 崇尚开放、自由，非常欢迎大家的参与</h2>
+            <div class="am-g">
+                <div class="am-u-lg-6 am-u-md-4 am-u-sm-12">
+                    <form class="am-form">
+                        <label for="name" class="about-color">你的姓名</label>
+                        <input id="name" type="text">
+                        <br/>
+                        <label for="email" class="about-color">你的邮箱</label>
+                        <input id="email" type="email">
+                        <br/>
+                        <label for="message" class="about-color">你的留言</label>
+                        <textarea id="message"></textarea>
+                        <br/>
+                        <button type="submit" class="am-btn am-btn-primary am-btn-sm"><i class="am-icon-check"></i> 提 交</button>
+                    </form>
+                    <hr class="am-article-divider am-show-sm-only">
+                </div>
+                <div class="am-u-lg-6 am-u-md-8 am-u-sm-12">
+                    <h4 class="about-color">关于我们</h4>
+                    <p>AllMobilize Inc (美通云动科技有限公司) 由前微软美国总部IE浏览器核心研发团队成员及移动互联网行业专家在美国西雅图创立，旨在解决网页在不同移动设备屏幕上的适配问题。基于国际专利技术并结合最前沿的HTML5技术，云适配解决方案可以帮助企业快速将桌面版网站适配到各种移动设备终端的屏幕上，不仅显著地提高了企业网站的用户体验以及销售转化率，而且大幅度地节省了企业开发和维护移动网站的费用。
+                    </p>
+                    <h4 class="about-color">团队介绍</h4>
+                    <p>AllMobilize Inc 获得了微软创投孵化器的支持，其领先科技已得到全球多家企业及机构的认可与信赖，客户包括全球500强企业、美国政府、国内政府机关、国内外上市公司、以及互联网标准化组织W3C。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="detail">
+    <div class="am-g am-container">
+        <div class="am-u-lg-12">
+            <h2 class="detail-h2">项目综述及环境配置详情</h2>
+            <div class="am-g">
+                <div class="am-u-lg-4 am-u-md-4 am-u-sm-12 detail-mb">
+                    <h3 class="detail-h3">
+                        <i class="am-icon-cogs am-icon-sm"></i>
+                        开发环境详情
+                    </h3>
+                    <p class="detail-p"><b>SYSTEM : </b>WINDOWS / LINUX</p>
+                    <p class="detail-p"><b>APACHE : </b>2.4</p>
+                    <p class="detail-p"><b>PHP : </b>7.1.0</p>
+                    <p class="detail-p"><b>MYSQL : </b>5.7.17</p>
+                </div>
+                <div class="am-u-lg-4 am-u-md-4 am-u-sm-12 detail-mb">
+                    <h3 class="detail-h3">
+                        <i class="am-icon-codepen am-icon-sm"></i>
+                        开发语言及框架选择
+                    </h3>
+                    <p class="detail-p"><b>前端语言 :</b>HTML+CSS+JS</p>
+                    <p class="detail-p"><b>后台技术 :</b>PHP</p>
+                    <p class="detail-p"><b>前端框架 :</b><a href="http://amazeui.org/" target="_blank">Amaze UI</a></p>
+                    <p class="detail-p"><b>后台框架 :</b><a href="http://www.thinkphp.cn/" target="_blank">ThinkPHP 5.0</a></p>
+                </div>
+                <div class="am-u-lg-4 am-u-md-4 am-u-sm-12 detail-mb">
+                    <h3 class="detail-h3">
+                        <i class="am-icon-vine am-icon-sm"></i>
+                        项目指导及参考
+                    </h3>
+                    <p class="detail-p"><b>指导老师 :</b>李广丽老师</p>
+                    <p class="detail-p"><b>参考文档 :</b>相关开发手册</p>
+                    <p class="detail-p"><b>参考视频 :</b>ThinkPHP5视频教程</p>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+{/block}
